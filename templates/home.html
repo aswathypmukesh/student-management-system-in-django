@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="login">
+    <div class="form">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/home.css' %}">
+        {% include 'base.html' %}
+        {% block content %}  
+        <button><a href="{% url 'add' %}">ADD STUDENT</a></button><br><br>
+        <button><a  href="{% url 'mark' %}">ADD MARK</a></button>
+        {% for student in students %}
+        <div class="border bg-muted p-3 mb-3">
+            <table>                
+                <tr>
+                    <td><h5> {{student.username}} </h5></td>
+                    <td><button ><a href="{% url 'update' student.id %}"> EDIT</a> </button></td>
+                    <td><button><a  href="{% url 'delete' student.id %}">DELETE</a></button></td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+        {% endblock %} 
+
+    </div>
+</body>
+</html>

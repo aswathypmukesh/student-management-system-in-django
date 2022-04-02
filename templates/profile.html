@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+</head>
+<body >
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style/login.css' %}">
+{% block content %}
+
+<div class="login">
+    <h2>Student Profile</h2>
+    
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <h5>About Me</h5>
+        <div><img src="{% static 'image/cat.jpg' %}"></div>
+        <p>I'm a student</p>
+        <table>                
+            <td>
+                <tr><h5>username: {{std.username}} </h5></tr>
+                <tr><h5>password: {{std.password}} </h5></tr>
+                <tr><h5>email_id: {{std.email_id}} </h5></tr>
+                <tr><h5>dob: {{std.dob}} </h5></tr>
+                <tr><h5>standard: {{std.standard}} </h5></tr>            
+                
+            </td>
+        </table>
+        <table>                
+            <td>
+                <tr><h5>subject: {{mark.subject}} </h5></tr>
+                <tr><h5>mark: {{mark.mark}} </h5></tr> 
+            </td>
+        </table> 
+        <button><a href="{% url 'student_logout' %}">Logout</a></button>
+        
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>

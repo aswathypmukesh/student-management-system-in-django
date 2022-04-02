@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equive='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body class="login">
+    <form action="" method="POST" class="form">
+        {% include 'base.html' %}
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="UserName"> <br>
+        <input type="password" name="password" placeholder="Password"> <br>
+        <button>Login</button>
+        <div>
+            {% for message in messages %}
+            <h3>{{ message }}</h3>
+            {% endfor %}   
+        </div> 
+
+    </form>
+</body>
+</html>
